@@ -1,6 +1,7 @@
 const questions = [
   {
     question: "Q1",
+    image: "assets/images/q1.jpg",
     answers: [
       { text: "A1", correct: true },
       { text: "A2", correct: false },
@@ -11,6 +12,7 @@ const questions = [
 
   {
     question: "Q2",
+    image: "assets/images/q2.jpg",
     answers: [
       { text: "A1", correct: true },
       { text: "A2", correct: false },
@@ -21,6 +23,7 @@ const questions = [
 
   {
     question: "Q3",
+    image: "assets/images/q3.jpg",
     answers: [
       { text: "A1", correct: true },
       { text: "A2", correct: false },
@@ -31,6 +34,7 @@ const questions = [
 
   {
     question: "Q4",
+    image: "assets/images/q4.jpg",
     answers: [
       { text: "A1", correct: true },
       { text: "A2", correct: false },
@@ -41,6 +45,7 @@ const questions = [
 
   {
     question: "Q5",
+    image: "assets/images/q5.jpg",
     answers: [
       { text: "A1", correct: true },
       { text: "A2", correct: false },
@@ -51,6 +56,7 @@ const questions = [
 
   {
     question: "Q6",
+    image: "assets/images/q6.jpg",
     answers: [
       { text: "A1", correct: true },
       { text: "A2", correct: false },
@@ -76,10 +82,18 @@ const startQuiz = () => {
 
 const showQuestion = () => {
   reset();
-  let currentQuestion = questions[currentQuestionIndex]; //this will get us the question index, like questions[0] = questions[Q1]
+
+  let currentQuestion = questions[currentQuestionIndex]; //this will get us the question index, like questions[0] = questions{object}
   // console.log(currentQuestion);
   let questionNo = currentQuestionIndex + 1;
   questionElement.innerHTML = questionNo + ". " + currentQuestion.question; // to display our question inside the h2 html element.
+
+  if (currentQuestion.image) {
+    const image = document.createElement("img");
+    image.src = currentQuestion.image; // Set the image source
+    image.alt = "image showing the location!"; // Optional: Set alternative text for accessibility
+    answerBtn.appendChild(image); // Append the image to the answer-buttons div
+  }
 
   currentQuestion.answers.forEach((answer) => {
     // this will go through the answers array using forEach method.

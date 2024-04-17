@@ -26,11 +26,18 @@ body{
 }
 .quiz{
     padding: 20px 0;
+    text-align: center;
 }
 .quiz h2{
     font-size: 18px;
     color: #001e4d;
     font-weight: 600;
+}
+
+img{
+    max-width: 80%;
+    border-radius: 10px;
+    margin-left: 30px;
 }
 
 .btn{
