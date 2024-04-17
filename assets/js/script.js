@@ -69,12 +69,13 @@ let score = 0;
 
 const startQuiz = () => {
   reset();
-  currentQuestionIndex;
-  score;
+  currentQuestionIndex = 0;
+  score = 0;
   showQuestion();
 };
 
 const showQuestion = () => {
+  reset();
   let currentQuestion = questions[currentQuestionIndex]; //this will get us the question index, like questions[0] = questions[Q1]
   // console.log(currentQuestion);
   let questionNo = currentQuestionIndex + 1;
@@ -98,7 +99,7 @@ const showQuestion = () => {
 // will hide the next btn until a answer is clicked.
 const reset = () => {
   nextBtn.style.display = "none";
-  while(answerBtn.firstChild){
+  while (answerBtn.firstChild) {
     answerBtn.removeChild(answerBtn.firstChild);
   }
 };
@@ -124,5 +125,31 @@ const selectAnswer = (e) => {
   nextBtn.style.display = "block";
 };
 
+// this function will show the score in the end, and display a play again button.
+const showScore = () => {
+  reset();
+  questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+  nextBtn.innerHTML = "Play again!!";
+  nextBtn.style.display = "block";
+};
+
+// this will handle our next question, once nextbtn is pressed.
+const handleNextBtn = () => {
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    showQuestion();
+  } else {
+    showScore();
+  }
+};
+
+//When nextBtn is clicked it will check if index is less than the current questions length, and if it is it will call handleNextBtn.
+nextBtn.addEventListener("click", () => {
+  if (currentQuestionIndex < questions.length) {
+    handleNextBtn();
+  } else {
+    startQuiz();
+  }
+});
 
 startQuiz();
