@@ -65,3 +65,11 @@ body{
     display: block;
 }
 
+.correct {
+    background: lightgreen;
+}
+
+.incorrect {
+    background: coral;
+}
+

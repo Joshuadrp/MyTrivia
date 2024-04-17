@@ -85,12 +85,31 @@ const showQuestion = () => {
     button.innerHTML = answer.text;  //we will write the text from our answers array using the answer variable from the forEach method.
     button.classList.add("btn"); //add a class to the new button
     answerBtn.appendChild(button); //display const button inside our answer-buttons div
+
+    if(answer.correct){ //
+      button.dataset.correct = answer.correct;
+    }
+
+    button.addEventListener("click", selectAnswer) //an event listener that will execute a function whenever button clicked.
   });
 };
 
+// will hide the next btn until a answer is clicked.
 const reset = () => {
   nextBtn.style.display = "none";
 }
+
+// this function will check whether the answer is true or false and will add a css class to the button depending on the state.
+const selectAnswer = (e) => {
+  const selectedBtn = e.target;
+  const isCorrect = selectedBtn.dataset.correct === "true";
+  if(isCorrect){
+    selectedBtn.classList.add("correct")
+  }else{
+    selectedBtn.classList.add("incorrect");
+  }
+}
+
 
 
 startQuiz();
