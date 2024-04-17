@@ -68,6 +68,7 @@ let currentQuestionIndex = 0;
 let score = 0;
 
 const startQuiz = () => {
+  resetState();
   currentQuestionIndex;
   score;
   showQuestion();
@@ -86,5 +87,12 @@ const showQuestion = () => {
     answerBtn.appendChild(button); //display const button inside our answer-buttons div
   });
 };
+
+//we will use this fnc to remove the html original btns and to set the next button display to none as we dont want it to be shown until a button is clicked.
+const resetState = () =>{ 
+    nextBtn.style.display = "none";
+    while(answerBtn.firstChild);
+    answerBtn.removeChild(answerBtn.firstChild);
+}
 
 startQuiz();
