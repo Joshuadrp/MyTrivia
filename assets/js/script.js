@@ -142,7 +142,13 @@ const selectAnswer = (e) => {
 // this function will show the score in the end, and display a play again button.
 const showScore = () => {
   reset();
-  questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+  let newScore = Math.floor((score/questions.length)*100); 
+  if(newScore<60){
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}. That is ${newScore}%. Im sure you can do better than that!`;
+  }else{
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}. That is ${newScore}%. Congratulations you rock!!`; 
+  }
+  
   nextBtn.innerHTML = "Play again!!";
   nextBtn.style.display = "block";
 };
