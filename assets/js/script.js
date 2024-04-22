@@ -1,7 +1,7 @@
 const questions = [
   {
     question: "Do you know where is this famous castle located?",
-    image: "assets/images/q1.jpg",
+    image: "assets/images/prague.jpg",
     answers: [
       { text: "Prague, Czech Republic", correct: true },
       { text: "Madrid, Spain", correct: false },
@@ -12,7 +12,7 @@ const questions = [
 
   {
     question: "This is a night view of a famous european city, do you know it?",
-    image: "assets/images/q2.jpg",
+    image: "assets/images/lisbon.jpg",
     answers: [
       { text: "Milan, Italy", correct: false },
       { text: "Zurich, Switzerland", correct: false },
@@ -24,7 +24,7 @@ const questions = [
   {
     question:
       "Have you ever climbed an ice diamond? Can you guess the location?",
-    image: "assets/images/q3.jpg",
+    image: "assets/images/diamond.jpg",
     answers: [
       { text: "Oulo, Finland", correct: false },
       { text: "Jökulsárlón, Iceland", correct: true },
@@ -36,7 +36,7 @@ const questions = [
   {
     question:
       "One of the modern architectural marvels of recent times... do you know the location?",
-    image: "assets/images/q4.jpg",
+    image: "assets/images/barcelona.jpg",
     answers: [
       { text: "Warsaw, Poland", correct: false },
       { text: "Munich, Germany", correct: false },
@@ -48,7 +48,7 @@ const questions = [
   {
     question:
       "This is a building... but it is considered an island. Its a church as well! Can you guess the location?",
-    image: "assets/images/q5.jpg",
+    image: "assets/images/venice.jpg",
     answers: [
       { text: "Sicily, Italy", correct: false },
       { text: "Lucern, Switzerland", correct: false },
@@ -60,12 +60,102 @@ const questions = [
   {
     question:
       "This is one of the most famous rivers in the world, do you know where it is?",
-    image: "assets/images/q6.jpg",
+    image: "assets/images/nile.jpg",
     answers: [
       { text: "Ganges, Asia", correct: false },
       { text: "Congo River, Africa", correct: false },
       { text: "Tigris, Turkey", correct: false },
       { text: "Nile River, Egypt", correct: true },
+    ],
+  },
+  {
+    question: "Do you know where is this famous castle located?",
+    image: "assets/images/prague.jpg",
+    answers: [
+      { text: "Prague, Czech Republic", correct: true },
+      { text: "Madrid, Spain", correct: false },
+      { text: "Paris, France", correct: false },
+      { text: "London, England", correct: false },
+    ],
+  },
+  {
+    question: "Do you know where is this famous castle located?",
+    image: "assets/images/prague.jpg",
+    answers: [
+      { text: "Prague, Czech Republic", correct: true },
+      { text: "Madrid, Spain", correct: false },
+      { text: "Paris, France", correct: false },
+      { text: "London, England", correct: false },
+    ],
+  },
+  {
+    question: "Do you know where is this famous castle located?",
+    image: "assets/images/prague.jpg",
+    answers: [
+      { text: "Prague, Czech Republic", correct: true },
+      { text: "Madrid, Spain", correct: false },
+      { text: "Paris, France", correct: false },
+      { text: "London, England", correct: false },
+    ],
+  },
+  {
+    question: "Do you know where is this famous castle located?",
+    image: "assets/images/prague.jpg",
+    answers: [
+      { text: "Prague, Czech Republic", correct: true },
+      { text: "Madrid, Spain", correct: false },
+      { text: "Paris, France", correct: false },
+      { text: "London, England", correct: false },
+    ],
+  },
+  {
+    question: "Do you know where is this famous castle located?",
+    image: "assets/images/prague.jpg",
+    answers: [
+      { text: "Prague, Czech Republic", correct: true },
+      { text: "Madrid, Spain", correct: false },
+      { text: "Paris, France", correct: false },
+      { text: "London, England", correct: false },
+    ],
+  },
+  {
+    question: "Do you know where is this famous castle located?",
+    image: "assets/images/prague.jpg",
+    answers: [
+      { text: "Prague, Czech Republic", correct: true },
+      { text: "Madrid, Spain", correct: false },
+      { text: "Paris, France", correct: false },
+      { text: "London, England", correct: false },
+    ],
+  },
+  {
+    question: "Do you know where is this famous castle located?",
+    image: "assets/images/prague.jpg",
+    answers: [
+      { text: "Prague, Czech Republic", correct: true },
+      { text: "Madrid, Spain", correct: false },
+      { text: "Paris, France", correct: false },
+      { text: "London, England", correct: false },
+    ],
+  },
+  {
+    question: "Do you know where is this famous castle located?",
+    image: "assets/images/prague.jpg",
+    answers: [
+      { text: "Prague, Czech Republic", correct: true },
+      { text: "Madrid, Spain", correct: false },
+      { text: "Paris, France", correct: false },
+      { text: "London, England", correct: false },
+    ],
+  },
+  {
+    question: "Do you know where is this famous castle located?",
+    image: "assets/images/prague.jpg",
+    answers: [
+      { text: "Prague, Czech Republic", correct: true },
+      { text: "Madrid, Spain", correct: false },
+      { text: "Paris, France", correct: false },
+      { text: "London, England", correct: false },
     ],
   },
 ];
@@ -79,7 +169,7 @@ const message = document.getElementById("message")
 let currentQuestionIndex = 0;
 let score = 0;
 
-
+// Hides Next btn and if clicked startQuiz is called.
 const startGame = () => {
   nextBtn.style.display = "none";
 };
