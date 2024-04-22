@@ -1,67 +1,67 @@
 const questions = [
   {
-    question: "Q1",
+    question: "Do you know where is this famous castle located?",
     image: "assets/images/q1.jpg",
     answers: [
-      { text: "A1", correct: true },
-      { text: "A2", correct: false },
-      { text: "A3", correct: false },
-      { text: "A4", correct: false },
+      { text: "Prague, Czech Republic", correct: true },
+      { text: "Madrid, Spain", correct: false },
+      { text: "Paris, France", correct: false },
+      { text: "London, England", correct: false },
     ],
   },
 
   {
-    question: "Q2",
+    question: "This is a night view of a famous european city, do you know it?",
     image: "assets/images/q2.jpg",
     answers: [
-      { text: "A1", correct: true },
-      { text: "A2", correct: false },
-      { text: "A3", correct: false },
-      { text: "A4", correct: false },
+      { text: "Milan, Italy", correct: false },
+      { text: "Zurich, Switzerland", correct: false },
+      { text: "Lisboa, Portugal", correct: true },
+      { text: "Barcelona, Spain", correct: false },
     ],
   },
 
   {
-    question: "Q3",
+    question: "Have you ever climbed an ice diamond? Can you guess the location?",
     image: "assets/images/q3.jpg",
     answers: [
-      { text: "A1", correct: true },
-      { text: "A2", correct: false },
-      { text: "A3", correct: false },
-      { text: "A4", correct: false },
+      { text: "Oulo, Finland", correct: false },
+      { text: "Jökulsárlón, Iceland", correct: true },
+      { text: "Bergen, Norway", correct: false },
+      { text: "Nuuk, Greenland", correct: false },
     ],
   },
 
   {
-    question: "Q4",
+    question: "One of the modern architectural marvels of recent times... do you know the location?",
     image: "assets/images/q4.jpg",
     answers: [
-      { text: "A1", correct: true },
-      { text: "A2", correct: false },
-      { text: "A3", correct: false },
-      { text: "A4", correct: false },
+      { text: "Warsaw, Poland", correct: false },
+      { text: "Munich, Germany", correct: false },
+      { text: "Barcelona, Spain", correct: true },
+      { text: "Athens, Greece", correct: false },
     ],
   },
 
   {
-    question: "Q5",
+    question: "This is a building... but it is considered an island. Its a church as well! Can you guess the location?",
     image: "assets/images/q5.jpg",
     answers: [
-      { text: "A1", correct: true },
-      { text: "A2", correct: false },
-      { text: "A3", correct: false },
-      { text: "A4", correct: false },
+      { text: "Sicily, Italy", correct: false },
+      { text: "Lucern, Switzerland", correct: false },
+      { text: "Venice, Italy", correct: true },
+      { text: "Naples, Italy", correct: false },
     ],
   },
 
   {
-    question: "Q6",
+    question: "This is one of the most famous rivers in the world, do you know where it is?",
     image: "assets/images/q6.jpg",
     answers: [
-      { text: "A1", correct: true },
-      { text: "A2", correct: false },
-      { text: "A3", correct: false },
-      { text: "A4", correct: false },
+      { text: "Ganges, Asia", correct: false },
+      { text: "Congo River, Africa", correct: false },
+      { text: "Tigris, Turkey", correct: false },
+      { text: "Nile River, Egypt", correct: true },
     ],
   },
 ];
