@@ -22,7 +22,8 @@ const questions = [
   },
 
   {
-    question: "Have you ever climbed an ice diamond? Can you guess the location?",
+    question:
+      "Have you ever climbed an ice diamond? Can you guess the location?",
     image: "assets/images/q3.jpg",
     answers: [
       { text: "Oulo, Finland", correct: false },
@@ -33,7 +34,8 @@ const questions = [
   },
 
   {
-    question: "One of the modern architectural marvels of recent times... do you know the location?",
+    question:
+      "One of the modern architectural marvels of recent times... do you know the location?",
     image: "assets/images/q4.jpg",
     answers: [
       { text: "Warsaw, Poland", correct: false },
@@ -44,7 +46,8 @@ const questions = [
   },
 
   {
-    question: "This is a building... but it is considered an island. Its a church as well! Can you guess the location?",
+    question:
+      "This is a building... but it is considered an island. Its a church as well! Can you guess the location?",
     image: "assets/images/q5.jpg",
     answers: [
       { text: "Sicily, Italy", correct: false },
@@ -55,7 +58,8 @@ const questions = [
   },
 
   {
-    question: "This is one of the most famous rivers in the world, do you know where it is?",
+    question:
+      "This is one of the most famous rivers in the world, do you know where it is?",
     image: "assets/images/q6.jpg",
     answers: [
       { text: "Ganges, Asia", correct: false },
@@ -69,10 +73,30 @@ const questions = [
 const questionElement = document.getElementById("question");
 const answerBtn = document.getElementById("answer-buttons");
 const nextBtn = document.getElementById("next-btn");
+const startBtn = document.getElementById("start-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
+let message =
+`Welcome to this awesome Trivia. If you have general knowledge about geography and historial sites, 
+this game is for you. Even if you don't, you will get knowledge here. 
+All you need to do, is press the start game button and select the right answer. The passing score is 60%!`;
 
+// this function will display a welcome message and hide the next button
+const willStart = () => {
+  questionElement.innerHTML = message;
+  nextBtn.style.display = "none";
+};
+
+// this event will trigger the startQuiz Function which will start the game, also it will hide the start game button.
+startBtn.addEventListener("click", () => {
+  if (startBtn) {
+    startBtn.style.display = "none";
+    startQuiz();
+  }
+});
+
+// this function will reset score and question index and start the quiz.
 const startQuiz = () => {
   reset();
   currentQuestionIndex = 0;
@@ -82,11 +106,11 @@ const startQuiz = () => {
 
 const showQuestion = () => {
   reset();
-
   let currentQuestion = questions[currentQuestionIndex]; //this will get us the question index, like questions[0] = questions{object}
   // console.log(currentQuestion);
   let questionNo = currentQuestionIndex + 1;
   questionElement.innerHTML = questionNo + ". " + currentQuestion.question; // to display our question inside the h2 html element.
+  nextBtn.innerHTML = "Next";
 
   if (currentQuestion.image) {
     const image = document.createElement("img");
@@ -142,13 +166,13 @@ const selectAnswer = (e) => {
 // this function will show the score in the end, and display a play again button.
 const showScore = () => {
   reset();
-  let newScore = Math.floor((score/questions.length)*100); 
-  if(newScore<60){
+  let newScore = Math.floor((score / questions.length) * 100);
+  if (newScore < 60) {
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}. That is ${newScore}%. Im sure you can do better than that!`;
-  }else{
-    questionElement.innerHTML = `You scored ${score} out of ${questions.length}. That is ${newScore}%. Congratulations you rock!!`; 
+  } else {
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}. That is ${newScore}%. Congratulations you rock!!`;
   }
-  
+
   nextBtn.innerHTML = "Play again!!";
   nextBtn.style.display = "block";
 };
@@ -172,4 +196,4 @@ nextBtn.addEventListener("click", () => {
   }
 });
 
-startQuiz();
+willStart();
