@@ -196,23 +196,9 @@ startBtn.addEventListener("click", () => {
 const startQuiz = () => {
   currentQuestionIndex = 0;
   score = 0;
-  shuffledQuestions = shuffleArray(questions).slice(0,4);
+  shuffledQuestions = shuffleArray(questions).slice(0, 9);
   showQuestion();
 };
-
-// help button event listener
-helpBtn.addEventListener("click", () => {
-  if (helpBtn) {
-    modal.style.display = "block";
-  } 
-});
-
-closeModal.addEventListener("click", () =>{
-  if(closeModal){
-    modal.style.display = "none";
-  }
-})
-
 
 // Fisher-Yates shuffle algorithm, iterates backward through the array, swapping each element with a randomly selected element before it.
 const shuffleArray = (array) => {
@@ -235,7 +221,6 @@ const showQuestion = () => {
   nextBtn.innerHTML = "Next";
   message.style.display = "none";
   helpBtn.style.display = "block";
-  
 
   if (currentQuestion.image) {
     const image = document.createElement("img");
@@ -257,7 +242,6 @@ const showQuestion = () => {
     button.addEventListener("click", selectAnswer);
   });
 };
-
 
 // Resets the answers and hides the next button whenever a new question is shown.
 const reset = () => {
@@ -317,9 +301,20 @@ const showScore = () => {
   nextBtn.innerHTML = "Play again!!";
   nextBtn.style.display = "block";
   helpBtn.style.display = "none";
-  
 };
 
+// help button event listener, displays modal if clicked.
+helpBtn.addEventListener("click", () => {
+  if (helpBtn) {
+    modal.style.display = "block";
+  }
+});
 
+// Hides modal when clicked.
+closeModal.addEventListener("click", () => {
+  if (closeModal) {
+    modal.style.display = "none";
+  }
+});
 
 startGame();
