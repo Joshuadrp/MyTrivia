@@ -172,6 +172,8 @@ const nextBtn = document.getElementById("next-btn");
 const startBtn = document.getElementById("start-btn");
 const message = document.getElementById("message");
 const helpBtn = document.getElementById("helpBtn");
+const modal = document.getElementById("myModal");
+const closeModal = document.getElementById("close");
 
 let shuffledQuestions = [];
 let currentQuestionIndex = 0;
@@ -198,6 +200,20 @@ const startQuiz = () => {
   showQuestion();
 };
 
+// help button event listener
+helpBtn.addEventListener("click", () => {
+  if (helpBtn) {
+    modal.style.display = "block";
+  } 
+});
+
+closeModal.addEventListener("click", () =>{
+  if(closeModal){
+    modal.style.display = "none";
+  }
+})
+
+
 // Fisher-Yates shuffle algorithm, iterates backward through the array, swapping each element with a randomly selected element before it.
 const shuffleArray = (array) => {
   const shuffled = array.slice(); // Copy of the original array
@@ -218,6 +234,8 @@ const showQuestion = () => {
   questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
   nextBtn.innerHTML = "Next";
   message.style.display = "none";
+  helpBtn.style.display = "block";
+  
 
   if (currentQuestion.image) {
     const image = document.createElement("img");
@@ -299,6 +317,9 @@ const showScore = () => {
   nextBtn.innerHTML = "Play again!!";
   nextBtn.style.display = "block";
   helpBtn.style.display = "none";
+  
 };
+
+
 
 startGame();
