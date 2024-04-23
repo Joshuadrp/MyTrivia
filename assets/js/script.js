@@ -171,6 +171,7 @@ const answerBtn = document.getElementById("answer-buttons");
 const nextBtn = document.getElementById("next-btn");
 const startBtn = document.getElementById("start-btn");
 const message = document.getElementById("message");
+const helpBtn = document.getElementById("helpBtn");
 
 let shuffledQuestions = [];
 let currentQuestionIndex = 0;
@@ -179,10 +180,12 @@ let score = 0;
 // Hides nextBtn and when startBtn is clicked calls startQuiz.
 const startGame = () => {
   nextBtn.style.display = "none";
+  helpBtn.style.display = "none";
 };
 startBtn.addEventListener("click", () => {
   if (startBtn) {
     startBtn.style.display = "none";
+    helpBtn.style.display = "block";
     startQuiz();
   }
 });
@@ -295,6 +298,7 @@ const showScore = () => {
 
   nextBtn.innerHTML = "Play again!!";
   nextBtn.style.display = "block";
+  helpBtn.style.display = "none";
 };
 
 startGame();
