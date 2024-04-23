@@ -191,7 +191,7 @@ startBtn.addEventListener("click", () => {
 const startQuiz = () => {
   currentQuestionIndex = 0;
   score = 0;
-  shuffledQuestions = shuffleArray(questions);
+  shuffledQuestions = shuffleArray(questions).slice(0,8);
   showQuestion();
 };
 
