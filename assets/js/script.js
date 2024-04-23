@@ -191,8 +191,19 @@ startBtn.addEventListener("click", () => {
 const startQuiz = () => {
   currentQuestionIndex = 0;
   score = 0;
-  shuffledQuestions = shuffleArray(questions).slice(0,8);
+  shuffledQuestions = shuffleArray(questions).slice(0,4);
   showQuestion();
+};
+
+// Fisher-Yates shuffle algorithm, iterates backward through the array, swapping each element with a randomly selected element before it.
+const shuffleArray = (array) => {
+  const shuffled = array.slice(); // Copy of the original array
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
 };
 
 // Displays the arrays of questions with their image and possible answers, assigns value to answer.
@@ -226,16 +237,6 @@ const showQuestion = () => {
   });
 };
 
-// Fisher-Yates shuffle algorithm, iterates backward through the array, swapping each element with a randomly selected element before it.
-const shuffleArray = (array) => {
-  const shuffled = array.slice(); // Copy of the original array
-
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-};
 
 // Resets the answers and hides the next button whenever a new question is shown.
 const reset = () => {
@@ -243,7 +244,7 @@ const reset = () => {
   answerBtn.innerHTML = "";
 };
 
-// Manage users answers selections, enables nextBtn, updates score.
+// Manage users answers selections, enables nextBtn, updates score, disables answers button when one already clicked.
 const selectAnswer = (e) => {
   const selectedBtn = e.target;
   const isCorrect = selectedBtn.dataset.correct === "true";
@@ -263,6 +264,25 @@ const selectAnswer = (e) => {
   nextBtn.style.display = "block";
 };
 
+// Calls handleNextBtn when clicked depending on the shuffledQuestions length, else calls startQuiz.
+nextBtn.addEventListener("click", () => {
+  if (currentQuestionIndex < shuffledQuestions.length) {
+    handleNextBtn();
+  } else {
+    startQuiz();
+  }
+});
+
+// Displays next question. If all questions were displayed, shows Score.
+const handleNextBtn = () => {
+  currentQuestionIndex++;
+  if (currentQuestionIndex < shuffledQuestions.length) {
+    showQuestion();
+  } else {
+    showScore();
+  }
+};
+
 // Applies a method to get the percentage based on the correct answers and number of questions, enables nextBtn to restart the game.
 const showScore = () => {
   reset();
@@ -276,23 +296,5 @@ const showScore = () => {
   nextBtn.innerHTML = "Play again!!";
   nextBtn.style.display = "block";
 };
-
-// Displays next question. If all questions were displayed, shows Score.
-const handleNextBtn = () => {
-  currentQuestionIndex++;
-  if (currentQuestionIndex < shuffledQuestions.length) {
-    showQuestion();
-  } else {
-    showScore();
-  }
-};
-
-nextBtn.addEventListener("click", () => {
-  if (currentQuestionIndex < shuffledQuestions.length) {
-    handleNextBtn();
-  } else {
-    startQuiz();
-  }
-});
 
 startGame();
