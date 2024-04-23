@@ -8,7 +8,8 @@
 
 body{
     background: url("../images/background.jpg") no-repeat;
-    background-size: cover;
+    background-size: 450%;
+    background-position: center;
 }
 
 
@@ -103,4 +104,6 @@ img{
 .incorrect {
     background: coral;
 }
+
+
 
