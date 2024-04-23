@@ -187,7 +187,7 @@ startBtn.addEventListener("click", () => {
   }
 });
 
-// Initializes quiz, resets cuestion Index and score.
+// Initializes quiz, resets cuestion Index and score, slices the copy of new shuffled array to show x amount of questions.
 const startQuiz = () => {
   currentQuestionIndex = 0;
   score = 0;
@@ -266,11 +266,11 @@ const selectAnswer = (e) => {
 // Applies a method to get the percentage based on the correct answers and number of questions, enables nextBtn to restart the game.
 const showScore = () => {
   reset();
-  let newScore = Math.floor((score / questions.length) * 100);
+  let newScore = Math.floor((score / shuffledQuestions.length) * 100);
   if (newScore < 60) {
-    questionElement.innerHTML = `You scored ${score} out of ${questions.length}. That is ${newScore}%. Im sure you can do better than that!`;
+    questionElement.innerHTML = `You scored ${score} out of ${shuffledQuestions.length}. That is ${newScore}%. Im sure you can do better than that!`;
   } else {
-    questionElement.innerHTML = `You scored ${score} out of ${questions.length}. That is ${newScore}%. Congratulations you rock!!`;
+    questionElement.innerHTML = `You scored ${score} out of ${shuffledQuestions.length}. That is ${newScore}%. Congratulations you rock!!`;
   }
 
   nextBtn.innerHTML = "Play again!!";
@@ -280,7 +280,7 @@ const showScore = () => {
 // Displays next question. If all questions were displayed, shows Score.
 const handleNextBtn = () => {
   currentQuestionIndex++;
-  if (currentQuestionIndex < questions.length) {
+  if (currentQuestionIndex < shuffledQuestions.length) {
     showQuestion();
   } else {
     showScore();
@@ -288,7 +288,7 @@ const handleNextBtn = () => {
 };
 
 nextBtn.addEventListener("click", () => {
-  if (currentQuestionIndex < questions.length) {
+  if (currentQuestionIndex < shuffledQuestions.length) {
     handleNextBtn();
   } else {
     startQuiz();
