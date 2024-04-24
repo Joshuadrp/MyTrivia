@@ -104,7 +104,7 @@ body {
   padding: 20px 0;
   text-align: center;
 }
-.quiz h2 {
+#question {
   font-size: 18px;
   color: #001e4d;
   font-weight: 600;
@@ -115,8 +115,11 @@ img {
   object-fit: contain;
 }
 
-#message{
-    line-height: 30px;
+#message {
+  line-height: 30px;
+  font-size: 18px;
+  color: #001e4d;
+  font-weight: 600;
 }
 
 /* Answers buttons style */
@@ -144,17 +147,17 @@ img {
 }
 
 /* Next btn styles, also Play again button styles */
-.other-btns{
-    background: #001e4d;
-    color: #fff;
-    font-weight: 500;
-    width: 150px;
-    border: 0;
-    padding: 10px;
-    margin: 20px auto 0;
-    border-radius: 4px;
-    cursor: pointer;
-    display: block;
+.other-btns {
+  background: #001e4d;
+  color: #fff;
+  font-weight: 500;
+  width: 150px;
+  border: 0;
+  padding: 10px;
+  margin: 20px auto 0;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
 }
 
 /* Correct or incorrect answer buttons styles */
